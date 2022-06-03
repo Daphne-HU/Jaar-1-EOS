@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+read -p 'Username: ' echo "uservar" >> bestanden/login1.txt
+read -sp 'Password: ' echo bestanden/login1.txt
+echo
+echo Thankyou $uservar we now have your login details

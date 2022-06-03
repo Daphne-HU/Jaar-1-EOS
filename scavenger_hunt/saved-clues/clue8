@@ -1,0 +1,17 @@
+### Clue 8: Graaf Tel ###
+
+#### `wc` ####
+
+Word count (`wc`) is een programma dat kan vertellen hoeveel regels, woorden of karakters er in een bestand (of andere invoer) zitten:
+
+    wc ~/V1EOS-practica/README.md
+
+Dit print het aantal regels, woorden en karakters, in die volgorde. Met `-l`, `-w` of `-c` kunnen we zeggen dat we maar in een getal geinteresseerd zijn.
+
+#### Finding Clue 9 ####
+
+Kijk of het bestand `/usr/share/dict/words` geïnstalleerd is. Zo niet, doe eerst:
+
+    sudo apt-get install ispell
+
+Nu hebben we een bestand dat als woordenboek gebruikt wordt voor spellingscontrole: `/usr/share/dict/words`. Je volgende clue is het aantal woorden in dit bestand.

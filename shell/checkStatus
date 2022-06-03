@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo "uitslagen voor het uitgevoerde command '$1' bij map '$2':" > bestanden/logboek.txt;
+for f in $(find $2);
+do [ $1 $f ] && echo "'$f' en '$1' werkt" >> bestanden/logboek.txt || echo "'$f' en '$1' werkt niet" >> bestanden/logboek.txt;
+done

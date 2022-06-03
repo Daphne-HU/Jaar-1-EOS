@@ -1,0 +1,30 @@
+./#!/usr/bin/env bash
+echo "Username: "
+read username
+
+if [[ -z "$username" ]]; then
+username=$(whoami)
+fi
+
+echo "Password: "
+read password
+
+echo "Herhaal password: "
+read password2
+
+length=${#password}
+
+while [[ $length < 8 ]] || [[ $password != $password2 ]]
+do
+echo "Password: "
+read password
+
+echo "Herhaal password: "
+read password2
+
+length=${#password}
+
+done
+
+echo password: $password | md5sum >> bestanden/logingegevens.txt
+echo username : $username >> bestanden/logingegevens.txt

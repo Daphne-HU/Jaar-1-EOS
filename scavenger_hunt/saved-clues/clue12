@@ -1,0 +1,44 @@
+### Clue 12: G++ ###
+
+#### `g++` ####
+Later in dit vak zullen we C++ code gaan schrijven. Om deze uit te kunnen voeren moeten we een compiler gebruiken. Natuurlijk kan je een IDE gebruiken om dit allemaal voor je te regelen, maar soms heb je deze luxe niet en moet je handmatig compileren vanaf de command line. Gelukkig valt dit reuze mee. We gebruiken *GCC*, de GNU Compiler Collection. De C++ compiler heet `g++`. Plak onderstaand programma in een tekstbestand en noem dit `main.cc`. Dit kan met een tekst-editor naar keuze, of met behulp van een zogenaamde "heredoc": een vorm van IO redirection. We hebben `>` gezien om de output van een commando naar een file te redirecten, en op dezelfde manier kunnen we `<` gebruiken om input uit een bestand te halen. Andere varianten zijn `>>` (voeg de output toe aan een bestand, in plaats van deze te overschirjven) en de "heredoc" `<<` (lees alles tot aan een bepaalde tag als input). Deze werkt als volgt:
+
+    echo > main.cc << EOF
+    <regels code of andere informatie die in het bestand main.cc terecht moet komen>
+    <meer tekst>
+    EOF
+
+De laatste regel bevat de tag `EOF`, dezelfde als meegegeven aan `<<`. Let erop dat deze tag het enige op de regel moet zijn, dus geen spaties ervoor of erna. De computer blijft invoer vragen tot het de end-tag is tegengekomen, en gebruikt de gegeven invoer daarna in het commando waar de `<<` op slaat. In dit geval wordt de gegeven invoer door `echo` herhaald en geschreven naar het bestand `main.cc`. Deze stap is niet verplicht, je kan ook een editor als `nano` gebruiken om de code in een bestand te zetten.
+
+Nu de code in het bestand `main.cc` staat kun je het programma compilen met `g++ -o main main.cc` en uitvoeren met `./main`. De `./` is nodig omdat de huidige map niet in de `PATH` variabele zit; met een compleet pad kan Linux toch de juiste binary vinden (dat de huidige map niet in `PATH` zit heeft met veiligheid te maken, zodat je niet per ongeluk een niet vertrouwd script uitvoert als je bijvoorbeeld in je Downloads map `ls` doet). Als je klachten krijgt dat de code niet klopt dan wordt waarschijnlijk een oude versie van C++ gebruikt (dit kan gebeuren op bijvoorbeeld WSL); probeer `g++ -std=c++11 -o main main.cc`.
+
+    #include <iostream>
+    #include <vector>
+    #include <tuple>
+
+    int main() 
+    { std::cout << "\e[2J" << std::endl;
+      std::vector<int> zerg = { 0x72, 0x58, 0x8e, 0x130, 0x14b, 0x1b7, 0x1d2,
+        0x1ed, 0x208, 0x223, 0x274, 0x28f, 0x2aa, 0x2c5, 0x2e0, 0x331, 0x3b8,
+        0x409, 0x424, 0x43f, 0x45a, 0x4ab, 0x568, 0x583, 0x59e, 0x5b9, 0x5d4,
+        0x5ef, 0x3e, 0xaa, 0x116, 0x167, 0x1b8, 0x23f, 0x275, 0x2fc, 0x332, 0x3b9,
+        0x3ef, 0x476, 0x4ac, 0x569, 0x24, 0xc6, 0xfc, 0x183, 0x1b9, 0x240, 0x276,
+        0x2fd, 0x333, 0x3ba, 0x3f0, 0x477, 0x4ad, 0x56a, 0x585, 0x5a0, 0x5bb,
+        0x5d6, 0x25, 0x40, 0x5b, 0x76, 0x91, 0xac, 0xc7, 0xfd, 0x118, 0x133, 0x14e,
+        0x169, 0x184, 0x1ba, 0x1d5, 0x1f0, 0x20b, 0x226, 0x277, 0x2fe, 0x334,
+        0x36a, 0x385, 0x3bb, 0x3f1, 0x478, 0x4ae, 0x56b, 0x26, 0xc8, 0xfe, 0x185,
+        0x1bb, 0x227, 0x278, 0x2ff, 0x335, 0x350, 0x3a1, 0x3bc, 0x3f2, 0x479,
+        0x4af, 0x56c, 0x27, 0xc9, 0xff, 0x186, 0x1bc, 0x243, 0x279, 0x294, 0x2af,
+        0x2ca, 0x2e5, 0x336, 0x3bd, 0x40e, 0x429, 0x444, 0x45f, 0x4b0, 0x4cb,
+        0x4e6, 0x501, 0x51c, 0x537, 0x56d };
+
+      for (const auto z : zerg)
+      { int bar = (z-5) % 27;
+        int foo = (z-(5+bar)) / 27;
+        int g7 = 196 + (foo + bar) % 36;
+        std::cout << "\e[" << bar << ";" << foo << "H\e[38;5;" << g7 << "m\u2588"; }
+      std::cout << std::endl;
+      return 0; }
+
+#### Clue 13 ####
+De uitvoer van het bovenstaande programma is een woord; dit woord is je volgende hint.

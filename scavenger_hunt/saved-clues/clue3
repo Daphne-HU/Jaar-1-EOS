@@ -1,0 +1,25 @@
+### Clue 3: Humans vs. Machines ###
+
+#### Binary vs. Tekst ####
+
+Op de computer zijn er in de basis twee soorten bestanden: bestanden die als tekst te lezen zijn, en binary bestanden. Tekstbestanden hebben voor zowel de computer als de gebruiker betekenis (ook wel human-readable genoemd). Dit bestand is een voorbeeld van een tekstbestand.
+
+Binary bestanden zijn alle bestanden die niet human-readable zijn. Proramma's, maar ook afbeeldingen, muziek, film... De beste manier om deze te zien (anders dan het openen met speciale software) is als binaire of hexadecimale code. Als je een bestand opent en er een hoop troep op je scherm komt dan heb je waarschijnlijk een binary bestand gevonden, dat niet bedoeld is om met `cat` of `less` te lezen. Het bestand is "machine readable".
+
+#### `/bin` ####
+
+De meeste programma's zijn voorbeelden van binary bestanden. Een python-bestand is uitvoerbaar, maar ook human-readable, maar de meeste programma's zijn dat niet. Het zijn *binary executables*. De standaardplek voor binary executables is de map `/bin`. Voer hier maar eens een `ls` uit (dat kan met `cd` en `ls`, maar je kan ook in een keer `ls /bin` doen om in de map te kijken zonder jezelf te verplaatsen). Als het goed is zie je een aantal programma's hier staan die we al zijn tegengekomen, waaronder `ls` zelf.
+
+Probeer het `ls` commando te bekijken met behulp van `cat /bin/ls` of `less /bin/ls`; Linux probeert de binaire code in tekst weer te geven, maar het resultaat is troep. Met programma's als `hexdump` kun je iets zinvoller naar binaire bestanden kijken.
+
+#### `/etc` ####
+
+Een andere belangrijke map op een Linux systeem is `/etc`, van het Latijnse *et cetera*. Deze map bevat met name tekstbestanden die de configuratie van het systeem vastleggen. Doordat deze (in de meeste gevallen) human-readable zijn kun je deze eenvoudig met een tekst-editor aanpassen om het systeem te configureren. In sommige gevallen zijn hier ook grafische programma's voor beschikbaar, die dan ook de human-readable configuratiebestanden aanpassen.
+
+Kijk eens rond in `/etc` en open het bestand `/etc/fstab`. Hier staat vastgelegd hoe verschillende schijven in het bestandsysteem gemount zijn (meer hierover in een latere les).
+
+#### Op Zoek Naar Clue 4 ####
+
+De hint voor clue 4 staat in het bestand `/etc/hostname`. Dit bestand bevat een enkel woord, de netwerknaam van je computer. Voer dit in met 
+
+    ./next_clue.py [HU-EMAIL] [CLUENR] [HOSTNAME]

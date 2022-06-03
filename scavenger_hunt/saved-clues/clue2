@@ -1,0 +1,37 @@
+### Clue 2: The Lay of the Land ###
+
+#### `pwd` ####
+
+Soms heb je even niet meer duidelijk waar je gebleven was. In plaats van terug te keren naar de beginmap kunnen we Bash ook vragen in welke directory we ons bevinden. Dit kan met het commando `pwd` (print working directory). De uitvoer zou er als volgt uit moeten zien:
+
+    /home/user/V1EOS-practica/scavenger-hunt/clues/12345
+
+We zitten zes mappen diep in een map genaamd `12345`.
+
+#### `cd` ####
+
+Het commando `cd` is erg handig, maar soms is het wat omslachtig alleen een map naar boven (`cd ..`) of beneden (`cd dir`) te gaan. We kunnen meerdere stappen tegelijk maken:
+
+    cd ../../../one/two/
+
+Dit voorbeeld werkt niet, omdat er drie mappen boven ons waarschijnlijk geen map `one` bestaat, laat staan met daarin een map `two`, maar je krijgt een idee van de manier van aanroepen. Deze manier van navigeren noemen we *relatieve paden*, omdat deze relatief zijn aan de map waar je je bevindt. Eenzelfde commando kan vanuit de ene map wel werken omdat de juiste map van daaraf gerekend bestaat, maar vanuit een andere map falen. Een alternatieve manier om van map te wisselen is met absolute paden. Deze redeneren vanaf de bovenste map van je systeem, en zijn niet afhankelijk van waar je je bevindt. Probeer maar:
+
+    cd /
+
+Gebruik `ls` om te zien wat er hier staat. Dit is de *root* map (niet te verwarren met de map letterlijk genaamd `root`, die binnen de *root* map staat). Je kunt ieder pad op het systeem vanaf de root formuleren, bijvoorbeeld `/usr/local/bin`.
+
+Je kunt met absolute paden ook terug naar je home folder: het beginpunt waar je in iedere nieuwe shell terecht komt. Dit kan met `cd ~` of gewoon `cd` zonder toevoeging. De `~` verwijst altijd naar de thuismap van de huidige gebruiker, en kan ook in complexe paden gebruikt worden zoals met `cd ~/V1EOS-practica/scavenger_hunt`.
+
+#### Op Naar Clue 3 ####
+
+Om de volgende clue te vinden moet je naar de `/usr` directory gaan en het aantal subdirectories tellen. Hierna ga je terug naar de `scavenger_hunt` map en gebruik je het volgende commando:
+
+    ./next_clue.py [HU-EMAIL] [NUMMER VOLGENDE CLUE] [ANTWOORD]
+
+Dus als je vijf mappen in `/usr` hebt en je studentnummer is 42:
+
+    ./next_clue.py "carmen.sandiego@student.hu.nl" 3 5
+
+Als je antwoord goed is krijg je het pad van de volgende clue; zo niet krijg je het pad naar een verkeerde hint (het GIGO principe: garbage in, garbage out). Je kan duidelijk zien als een hint verkeerd is, probeer maar eens een willekeurige map.
+
+Tip: je kan meerdere terminals openen, of extra tabbladen openen met `CTRL-SHIFT-T`.

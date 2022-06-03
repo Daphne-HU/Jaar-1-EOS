@@ -1,0 +1,13 @@
+### Clue 6: Which `which` is which? ###
+
+#### `which` ####
+
+In de vorige stap hebben we geleerd over `PATH`. Dit vertelt de computer waar het uitvoerbare bestanden kan vinden. Het gebruik van `PATH` betekent wel dat een programma op meerdere plaatsen kan zijn. Met het programma `which` kunnen we zien waar een programma daadwerkelijk staat:
+
+    which mv
+
+Dit zou `/bin/mv` moeten printen, dus `mv` staat in de `/bin` map. Which is zelf ook een programma, dus probeer eens te kijken waar dit zich bevindt met `which which`. Sommige commando's zijn ingebouwd in Bash, zoals `cd`. Als je met `which cd` vraagt waar dit programma staat krijg je een melding dat het niet gevonden kan worden.
+
+#### Finding Clue 7 ####
+
+Gebruik `which` om erachter te komen waar `python` geïnstalleerd staat. Dit is je volgende hint.

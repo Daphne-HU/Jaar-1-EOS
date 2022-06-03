@@ -1,0 +1,27 @@
+### Clue 7: Make Me a Sandwhich ###
+
+https://xkcd.com/149/
+
+#### `sudo` ####
+
+Linux heeft een concept van een `root` gebruiker, de beheerder van het systeem. Een normale gebruiker kan niet veel aanpassen buiten diens eigen mappen, en bijvoorbeeld niet zomaar software installeren. Deze gebruiker wordt ook wel de super user genoemd. Als je iets uit moet voeren met de rechten van de super user kun je het commando `sudo` (super-user do) gebruiken.
+
+#### Software Installeren ####
+
+Een voorbeeld van wanneer je `sudo` nodig hebt is als je een programma wil installeren. Hoe dit precies in zijn werk gaat verschilt tussen verschillende Linux versies, maar voor zowel de Raspberry als de standaar HU-TI Lubuntu is dit gelukkig hetzelfde: het commando `apt-get`. We kunnen proberen het commando `cowsay` te installeren
+
+    apt-get install cowsay
+
+maar zonder `sudo` krijgen we een foutmelding die vraagt of we dit wel mogen. Probeer in plaats daarvan
+
+    sudo apt-get install cowsay
+
+en we zouden (zodra `apt-get` helemaal klaar is) `cowsay` moeten kunnen gebruiken:
+
+    cowsay "Not amoosed."
+
+Als je een commando probeert uit te voeren dat nog niet op het systeem geinstalleerd is zal Lubuntu je vaak ook vertellen welk commando je aan `apt-get` moet geven om het te installeren.
+
+#### Clue 8 ####
+
+De volgende hint is de naam van de eerste map in `/sys/kernel/debug`. Je kunt `sudo` niet met `cd` combineren, omdat je dan nadat `sudo` klaar is in een map zou zitten waar je niet mag zijn. Je zult dus op afstand de mapinhoud op moeten vragen...

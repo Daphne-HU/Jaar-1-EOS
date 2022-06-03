@@ -1,0 +1,16 @@
+### Clue 11: It's a Process ###
+
+#### `ps` ####
+
+Zoals je onder Windows taakbeheer kan gebruiken om te zien welke processen er draaien (en een process dat zich niet gedraagt de nek om te draaien) kun je Taakbeheer gebruiken. Op de Linux command line hebben we hier een aantal commando's voor, te beginnen met `ps` (process status). Dit geeft een lijst van alle processen binnen de huidige terminal. Met `ps -A` krijg je een lijst met alle processen terug. Ieder programma heeft een PID (process ID) waarmee het proces binnen het systeem terug te vinden is.
+
+#### `kill` ####
+
+Om een programma te stoppen kun je het commando `kill` gebruiken met de PID van het te stoppen process. Dit stuurt een signaal naar het programma, standaard het `SIGTERM` signaal: een beleefd verzoek om te stoppen. Een programma kan dit negeren, bijvoorbeeld om de gebruiker te vragen of zaken moeten worden opgeslagen. Een veel dringender verzoek is een `SIGKILL`, uitgevoerd met `kill -9 [PID]`. Wees voorzichtig met dit commando, want het is makkelijk werk te verliezen of je systeem zodanig te slopen dat je opnieuw moet opstarten. Kill is erg handig als je een script of programma draait dat oneindig door gaat en/of veel te veel van het systeem vraagt. Let er dan wel op dat je de juiste PID meegeeft! Linux zal je alleen toestaan processen van jezelf te killen; hoewel je dit met `sudo` kan omzeilen is dit meestal een teken dat je een verkeerd proces probeert te stoppen. In de les over processen zullen we meer mogelijkheden van `kill` zien.
+
+#### `top` ####
+
+Een meer complete tegenhanger van Taakbeheer is het TUI programma `top`. TUI staat voor Terminal User Interface, en betekent dat een programma wel een "grafische" interface heeft, maar dan binnen de terminal en opgebouwd uit (gekleurde) tekst en bloksymbolen. Waar de meeste commando's die we hebben gezien een output geven en dan klaar zijn blijft een TUI programma draaien tot het gestopt wordt. `man` en `less` zijn andere voorbeelden van simpele TUI's. Het commando `top` geeft gedetailleerde informatie over de processen op het systeem, zoals CPU- en geheugengebruik. De interface is wel wat minder toegankelijk. Start het programma `top` en kijk wat er gebeurt. Je kan `q` gebruiken om `top` te stoppen.
+
+#### Clue 12 ####
+De hint voor clue 12 is de naam van het eerste proces binnen `ps -A` (met PID 1).

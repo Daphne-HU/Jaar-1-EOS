@@ -1,0 +1,28 @@
+### Clue 5: Echo (echo echo) ###
+
+#### `echo` ####
+
+Soms willen we iets laten printen (zoals Python's `print()`), bijvoorbeeld om de waarde van een variabele te lezen. Hiervoor hebben we het `echo` commando. Als we dit commando gewone tekst meegeven dan wordt deze letterlijk voor ons herhaald:
+
+    echo hello
+
+#### Redirect ####
+
+Je kunt `echo` gebruiken om een bestand te maken door de uitvoer niet naar de terminal te sturen, maar naar een bestand te redirecten:
+
+    echo Never gonna give you up > rick.txt
+
+Als je het bestand rick.txt bekijkt see je precies wat je getypt hebt. Het `>` symbool heet een redirect. Het stuurt alle uitvoer die je normaal op je scherm zou krijgen naar een bestand. Dit werkt voor alle commando's die uitvoer geven, niet enkel echo:
+
+    ls > index.txt
+
+Je kan `echo` ook gebruiken om de inhoud van een variabele te zien:
+
+    echo $PATH
+    echo $HOME
+
+De variabele `HOME` zou op dit punt herkenbaar moeten zijn.
+
+#### Op Naar Clue 6 ####
+
+De variabel `PATH` vertelt de computer waar het naar programma's moet zoeken. De meeste commando's zijn eigenlijk programma's, en hoewel de meeste daarvan in `/bin` staan zijn er meer mogelijke plaatsen om te zoeken, en kan dit ook per systeem verschillen. Iedere map waar programma's kunnen staan is gescheiden met een dubbele punt. De volgende hint is het eerste pad in `PATH`.

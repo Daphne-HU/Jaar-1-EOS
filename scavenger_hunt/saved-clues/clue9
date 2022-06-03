@@ -1,0 +1,17 @@
+### Clue 9: Searching High and Low ###
+
+#### `grep` ####
+
+Een ander zinvol commando is het zoeken in bestanden:
+
+    grep geheim README.md
+
+Dit print iedere regel in het bestand `README.md` die het woord "geheim" bevat. `grep` staat voor *GNU Regular Expression Parsing*. GNU is een organisatie die voor een belangrijk deel van de Linux-omgeving verantwoordelijk is, en nog veel open-source projecten daarbuiten. Een regular expression is een patroon dat gebruikt kan worden om tekst te zoeken. In dit geval zoeken we gewoon naar een woord, en zullen we alleen exacte matches terugkrijgen. Regular expressions kunnen veel krachtiger (en gecompliceerder) zijn. Voor een simpel voorbeeld,
+
+    grep m.n README.md
+
+zoekt naar iedere regel die de letters m en n bevatten met daartussenin een enkel karakter. Woorden als "man" en "min" worden dus gevonden, of zelfs "pokemon" (we hebben niet gezegd dat het woord maar uit drie letters mag bestaan, alleen dat het een m, een karakter, en een n moet bevatten). Het woord "maan" voldoet niet aan het patroon en zou niet worden gevonden. Lees de manpage voor meer interessante opties.
+
+#### Clue 10 ####
+
+De volgende hint is het volgende woord na "tactics" in `/usr/share/dict/words`. Er bestaat een handige optie voor `grep` om dit te vinden.

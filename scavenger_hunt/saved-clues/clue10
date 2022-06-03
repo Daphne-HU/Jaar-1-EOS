@@ -1,0 +1,43 @@
+### Clue 10: Pipes ###
+
+#### Informatie Doorsluizen ####
+
+Veel commando's printen de output naar de terminal. Dit noemen we "standard output" ookwel `stdout`, of in C++: `cout`. We hebben gezien hoe we dit met `>` naar een bestand kunnen redirecten. Er is ook een standard input (`stdin` of `cin`), die we met `<` kunnen redirecten om invoer aan een programma te geven. `cat` kan bijvoorbeeld ook van `stdin` lezen: als je `cat` zonder bestand aanroept en iets typt krijg je je invoer terug. Gebruik `CTRL-T` om `cat` te stoppen, en probeer `cat < ~/V1EOS-practica/README.md`. Voor `cat` betekent dit exact hetzelfde als `cat ~/V1EOS-practica/README.md`, behalve dat de invoer voor `cat` eruit ziet alsof deze is ingetypt in plaats van uit een bestand gelezen wordt. Voor veel andere commando's maakt het de `<` wel verschil.
+
+Om twee commando's te combineren kun je de uitvoer van de eerste koppelen aan de invoer van de tweede. Dit kan met de pipe (`|`). Als je bijvoorbeeld wil weten hoeveel bestanden en mappen er in een map zitten kan je `ls` en `wc` gebruiken:
+
+    ls | wc -w
+
+De uitvoer van `ls` wordt gebruikt als input voor `wc`.
+Een ander voorbeeld:
+
+    grep ^sand /usr/share/dict/words | wc -l
+
+vertelt je hoeveel woorden er met de letters "sand" beginnen in het dictionary-bestand. Het dakje (`^`) geeft het begin van de regel aan, dus de `s` moet het eerste karakter op de regel zijn. Op dezelfde manier kun je `$` gebruiken voor het einde van een regel, voor woorden die op een bepaalde groep letters eindigen.
+
+#### Pipelines ####
+
+Je kunt meerdere commando's achter elkaar pipen om een pipeline te maken, bijvoorbeeld
+
+    sudo apt-get install fortune cowsay lolcat
+    fortune | cowsay | lolcat
+
+#### Sorteren ####
+
+In ASK hebben we gezien hoe we een sorteeralgoritme kunnen programmeren, maar als we in Bash bezig zijn komt dit batteries-included mee. Het woordenboek-bestand is al gesorteerd, maar we kunnen dit ook shuffelen met `sort -R`
+
+    sort -R /usr/share/dict/words > random_words
+
+Als we nu `sort randow_words` doen kunnen we het weer terug sorteren naar alfabetische volgorde, of met `-r` omgekeerde alfabetische volgorde.
+
+#### Clue 11 ####
+
+Gebruik het commando `ls -la /etc` om een grote lijst van bestanden en mappen te krijgen. De 5e kolom geeft de grootte van een bestand in bytes. Zoek een `sort` commando om deze uitvoer op grootte te sorteren (met pipes), met het grootste bestand eerst. Geef de opties van je antwoord aan `next_clue` los en met dubbele quotes eromheen, dus als je bijvoorbeeld `sort -a -b -c` gebruikt hebt:
+
+    ./next_clue.py [HU-EMAIL] 11 "-a -b -c"
+
+en niet
+
+    ./next_clue.py [HU-EMAIL] 11 "-abc"
+
+Hint: `sort` is slim genoeg om kolommen te herkennen, maar noemt het "keys". Je kunt `KEYDEF=n` gebruiken om de `n`-e kolom te selecteren.

@@ -1,0 +1,41 @@
+### Clue 4: Bestanden en Mappen ###
+
+#### Ruimte Maken ####
+
+We zijn tot nu toe op verkenning geweest langs mappen die al op de computer staan. Maar uiteindelijk willen we als we Linux gebruiken niet alleen rondkijken, maar ook onze eigen bestanden en mappen maken. Het eerste dat we gaan doen is een map maken. Ga eerst naar de beginmap van de scavenger hunt: `cd ~/V1EOS-practica/scavenger_hunt`. Doe dan
+
+    mkdir saved-clues
+
+We hebben nu een map gemaakt waarin we alle gevonden clues kunnen bewaren. Het commando hiervoor is `mkdir` (make directory). We gaan nu clue 2 en 3 naar onze nieuwe map kopiëren. Als je de nummers hebt opgeschreven is dit makkelijk, zo niet kan je met pijltje naar boven en beneden door je vorige commando's heenlopen om te zien welk getal je gebruikt hebt.
+
+#### Do You Copy? ####
+
+Om bestanden te kopiëren gebruiken we het `cp` commando, met twee argumenten: een bron en een doel. Laten we onze vorige clues kopiëren.
+
+    cp clues/12345/clue saved-clues/clue2
+    cp clues/59869/clue saved-clues/clue3
+
+Doordat we kopiëren naar een bestand (respectievelijk `clue2` en `clue3`) krijgen de bestanden deze nieuwe naam. Als we deze naam weglaten kunnen we bestanden met naamsbehoud kopiëren:
+
+    cp clues/12345/clue saved-clues/
+    cp clues/59869/clue saved-clues/
+
+Dit zou niet helemaal goed gaan, omdat beide bestanden dezelfde naam hebben en we met het tweede commando de eerste kopie overschrijven. Je kunt in dit geval zien dat we naar een map kopiëren doordat het pad op een `/` eindigt. Dit hoeft niet, `cp clues/12345/clue saved-clues` zou ook volstaan. Omdat Linux ziet dat er al een map genaamd `saved-clues` bestaat worden de bestanden in deze map gezet, in plaats van dat er een bestand met deze naam wordt aangemaakt. Je kan nooit twee bestanden of mappen met dezelfde naam in dezelfde map hebben staan, en Linux zal nooit per ongeluk een map met een enkel bestand overschrijven.
+
+#### Opties Verkennen ####
+
+Veel Linux commando's hebben opties die je mee kan geven om het gedrag van het commando te beïnvloeden. Probeer bijvoorbeeld eens `ls -l` en vergelijk dit met normaal `ls`. De toevoeging `-l` is hier een optie. De meeste opties bestaan uit een `-` en een enkele letter. Je kunt meerdere van dit soort opties combineren door de letters achters elkaar te zetten met een enkele `-`, dus in plaats van `ls -s -l -a -h` kan je `ls -slah` typen. De beste plaats om over opties van een commando te leren is de manpage.
+
+#### Moving On ####
+
+Als we een kopie van een bestand maken blijft het origineel bestaan, maar soms willen een bestand alleen verplaatsen of hernoemen (in Linux termen is dit hetzelfde). Als we bijvoorbeeld niet blij zijn met de naam `saved-clues` die we eerder aan onze map hebben gegeven, dan kunnen we dit eenvoudig oplossen met het `mv` (move) commando:
+
+    mv saved-clues [pick a new name]
+
+Doe een `ls` om het resultaat te zien. Wees voorzichtig met het gebruik van commando's als `mv` en `cp`, het is makkelijk om een bestaand bestand te overschrijven, en Linux vraagt niet of je het zeker weet!
+
+#### Clue 5 ####
+
+Lees de manpage voor `mv` en zoek de optie die overschrijven (overwriting) tegengaat. Deze optie is je volgende hint voor `./next_clue.py`. Zet de optie tussen aanhalingstekens, dus als je bijvoorbeeld `-1` als optie had gevonden gebruik je
+
+    ./next_clue.py [HU-EMAIL] 5 "-l"

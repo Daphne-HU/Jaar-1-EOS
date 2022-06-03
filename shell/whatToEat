@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+#random=$(( $RANDOM % 10 + 1 ))
+
+echo "voorkeur voor eten (opties: vegan/vega/vlees): "
+read voorkeur
+
+while [[ $voorkeur != vegan ]] && [[ $voorkeur != vega ]] && [[ $voorkeur != vlees ]]
+do
+echo "voorkeur voor eten (opties: vegan/vega/vlees): "
+read voorkeur
+done
+
+if [ $voorkeur == vegan ]
+then
+random=$(( $RANDOM % 4 + 1 ))
+elif [ $voorkeur == vega ]
+then
+random=$(( $RANDOM % 8 + 5 ))
+else
+random=$(( $RANDOM % 12 + 9 ))
+fi
+
+recept1='https://www.pickuplimes.com/recipe/sticky-orange-glazed-tofu-320'
+recept2='https://www.pickuplimes.com/recipe/vegan-chipotle-fajitas-328'
+recept3='https://www.pickuplimes.com/recipe/spicy-garlic-wok-noodles-213'
+recept4='https://www.pickuplimes.com/recipe/turkish-red-lentil-soup-26'
+recept5='https://www.ah.nl/allerhande/recept/R-R1196984/menemen'
+recept6='https://www.ah.nl/allerhande/recept/R-R1196914/skottelbraai-noedels-met-gebakken-tofu'
+recept7='https://www.ah.nl/allerhande/recept/R-R1196855/nacho-s-met-guacamole-airfryer'
+recept8='https://www.ah.nl/allerhande/recept/R-R1196174/wortelwraps-met-geitenkaas'
+recept9='https://www.ah.nl/allerhande/recept/R-R1193287/entrecote-bakken'
+recept10='https://www.ah.nl/allerhande/recept/R-R1185090/beef-wellington'
+recept11='https://www.ah.nl/allerhande/recept/R-R665318/boeuf-bourguignon'
+recept12='https://www.ah.nl/allerhande/recept/R-R1196900/skottelbraai-chili-con-carne'
+
+open="recept${random}"
+echo $open
+xdg-open ${!open} 2> /dev/null

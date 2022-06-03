@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+for f in $(find ~/v1eos-practica/shell/bestanden -name *.jpg);
+do convert "$f" -resize 128x128 "${f%.*}".png;
+done
+for f in $(find ~/v1eos-practica/shell/bestanden -name *.jpg);
+do rm "$f";
+
+
+
+read -sp 'Password: ' passvar
+echo
+echo Thankyou $uservar we now have your login details
