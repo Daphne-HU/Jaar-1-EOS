@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mkdir ~/v1eos-practica/shell/bestanden/Afbeeldingen
+mkdir ~/v1eos-practica/shell/bestanden/$1
 for f in $(find ~/v1eos-practica/shell/bestanden -name *.jpg -or -name *.png);
-do mv $f ~/v1eos-practica/shell/bestanden/Afbeeldingen; 
+do mv $f ~/v1eos-practica/shell/bestanden/$1; 
 done

@@ -2,7 +2,7 @@
 #include <string>
 
 std::string translate(std::string line, std::string argument)
-{ std::string result = ""; // implementeer dit
+{ std::string result = line + argument; // implementeer dit
   return result; }
 
 int main(int argc, char *argv[])
