@@ -1,13 +1,21 @@
+  GNU nano 6.2                         voerUit                                  
 #!/usr/bin/env bash
-if [[ $1 == *.py ]]
-then
-  python3 $1
-elif [[ $1 == *.sh ]]
-then
-  bash $1
-elif [[ $1 == *.cc ]]
-then
-  cat $1
-else
-echo " Foutmelding "
-fi
+fileBaseName=$1
+
+fileExtention="${fileBaseName##*.}"
+
+case $fileExtention in
+  "py")
+    python3 $*
+  ;;
+  "sh")
+    bash $*
+  ;;
+  "cc")
+    cat $*
+  ;;
+  *)
+    echo "extentie bestaat niet '$fileExtention'."
+  exit 3
+  ;;
+esac
